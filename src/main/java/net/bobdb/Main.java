@@ -97,5 +97,11 @@ public class Main {
                 .collect(Collectors.groupingBy(x->x/10*10,Collectors.toList()));
         System.out.println(appo);
 
+        //14.  Given a list of strings, return only the integers
+        String[] myArray = {"123", "XYZ", "456", "ABC"};
+        List<Integer> ans2 = Arrays.stream(myArray).filter(x->x.matches("[0-9]+")).map(Integer::valueOf).toList();
+        System.out.println(ans2);
+
+        //
     }
 }
