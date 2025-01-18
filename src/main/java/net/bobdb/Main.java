@@ -109,8 +109,12 @@ public class Main {
         ans3 = Arrays.stream(arr2).boxed().collect(Collectors.toList()).stream().limit(2).reduce(1,(a,b)->a*b);
         System.out.println(ans3);
 
+        //16.  Group anagrams from a list of string
+        String[] words = {"ab", "ba", "tap","pat"};
 
-
-
+        Collection<List<String>> var5 =
+                Arrays.stream(words).collect(Collectors.groupingBy(x -> Arrays.stream(x.toLowerCase().split(""))
+                .sorted().collect(Collectors.toList()))).values();
+        System.out.println(var5);
     }
 }
