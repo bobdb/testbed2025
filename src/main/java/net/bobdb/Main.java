@@ -1,5 +1,7 @@
 package net.bobdb;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -102,6 +104,13 @@ public class Main {
         List<Integer> ans2 = Arrays.stream(myArray).filter(x->x.matches("[0-9]+")).map(Integer::valueOf).toList();
         System.out.println(ans2);
 
-        //
+        //15.  Product of first 2 elements of array
+        int[] arr2 = {2,3,4,5};
+        ans3 = Arrays.stream(arr2).boxed().collect(Collectors.toList()).stream().limit(2).reduce(1,(a,b)->a*b);
+        System.out.println(ans3);
+
+
+
+
     }
 }
