@@ -5,6 +5,7 @@ import org.w3c.dom.ls.LSOutput;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.groupingBy;
@@ -111,10 +112,15 @@ public class Main {
 
         //16.  Group anagrams from a list of string
         String[] words = {"ab", "ba", "tap","pat"};
-
         Collection<List<String>> var5 =
                 Arrays.stream(words).collect(Collectors.groupingBy(x -> Arrays.stream(x.toLowerCase().split(""))
                 .sorted().collect(Collectors.toList()))).values();
         System.out.println(var5);
+
+        //17. Mulitply Alternative numbers in an Array
+        int[] arrd = {2, 4, 1, 6, 2, 7, 3, 1, 2};
+        ans3 = IntStream.range(0, arrd.length).filter(x->x%2==0).map(x->arrd[x]).reduce(1,(a,b)->a*b);
+        System.out.println(ans3);
+
     }
 }
