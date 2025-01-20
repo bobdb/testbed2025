@@ -141,6 +141,13 @@ public class Main {
                 .values().stream().noneMatch(x->x>1);
         System.out.println(distinctx);
 
+        //21. group the strings based on middle character
+        String[] argh = {"asa", "ada", "dsd","aea"};
+        var midcr = Stream.of(argh).collect(Collectors.groupingBy(x->x.substring(1,2)));
+        System.out.println(midcr);
+
+
+
 
   }
 }
