@@ -134,6 +134,13 @@ public class Main {
                 .values().stream().flatMap(Collection::stream).toList();
         System.out.println(ans5);
 
+        //20. return true if array contains all distinct values
+        int[] arrg = {1,2,3,4,4,5};
+        boolean distinctx = Arrays.stream(arrg).boxed().toList().stream()
+                .collect(Collectors.groupingBy(Function.identity(),Collectors.counting()))
+                .values().stream().noneMatch(x->x>1);
+        System.out.println(distinctx);
 
-    }
+
+  }
 }
