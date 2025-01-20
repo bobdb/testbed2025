@@ -117,7 +117,7 @@ public class Main {
                 .sorted().collect(Collectors.toList()))).values();
         System.out.println(var5);
 
-        //17. Mulitply Alternative numbers in an Array
+        //17. Multiply Alternative numbers in an Array
         int[] arrd = {2, 4, 1, 6, 2, 7, 3, 1, 2};
         ans3 = IntStream.range(0, arrd.length).filter(x->x%2==0).map(x->arrd[x]).reduce(1,(a,b)->a*b);
         System.out.println(ans3);
