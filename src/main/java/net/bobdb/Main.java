@@ -122,5 +122,11 @@ public class Main {
         ans3 = IntStream.range(0, arrd.length).filter(x->x%2==0).map(x->arrd[x]).reduce(1,(a,b)->a*b);
         System.out.println(ans3);
 
+        //18. Multiply outside in
+        int[] arre = {1,2,3,4,5,6};
+        int[] ans4 = IntStream.range(0,arre.length/2).map(x->arre[x]*arre[arre.length-x-1]).toArray();
+        System.out.println(Arrays.toString(ans4));
+
+
     }
 }
