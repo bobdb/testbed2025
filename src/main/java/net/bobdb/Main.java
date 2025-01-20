@@ -127,6 +127,13 @@ public class Main {
         int[] ans4 = IntStream.range(0,arre.length/2).map(x->arre[x]*arre[arre.length-x-1]).toArray();
         System.out.println(Arrays.toString(ans4));
 
+        //19. move all zeros to beginning of array
+        int[] arrf = {1,0,2,0,3,0,4,5,6,0,8};
+        List<Integer> ans5 = Arrays.stream(arrf).boxed().toList().stream()
+                .collect(Collectors.partitioningBy(x->x!=0))
+                .values().stream().flatMap(Collection::stream).toList();
+        System.out.println(ans5);
+
 
     }
 }
