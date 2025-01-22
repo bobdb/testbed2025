@@ -166,5 +166,19 @@ public class Main {
         List<Integer> distods = argl.stream().filter(x->x%2==1).distinct().toList();
         System.out.println(distods);
 
+        //26. union of 2 lists
+        List<Integer> list1 = Arrays.asList(1,2,3,4,5);
+        List<Integer> list2 = List.of(1,2,3,4,5);
+        List<Integer> cc = Stream.concat(list1.stream(),list2.stream()).toList();
+        System.out.println(cc);
+
+        //27. kth smallest element of list
+        List<Integer> list3 = List.of(1,2,3,8,4,5);
+        int sk=3;
+        int kth = list3.stream().sorted().skip(sk-1).findFirst().get();
+        System.out.println(kth);
+
+
+
     }
 }
