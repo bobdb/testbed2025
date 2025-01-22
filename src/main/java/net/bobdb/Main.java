@@ -151,6 +151,10 @@ public class Main {
         int sumi = argi.stream().mapToInt(Integer::valueOf).sum();
         System.out.println(sumi);
 
+        //23. Sort a list of strings in alphabetical order
+        List<String> argj = Arrays.asList("Zasdfasdf","Ysdgsfds","asdasda", "BSDFSDF");
+        List<String> srted = argj.stream().sorted(String.CASE_INSENSITIVE_ORDER).toList();
+        System.out.println(srted);
 
 
   }
