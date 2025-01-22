@@ -146,6 +146,10 @@ public class Main {
         var midcr = Stream.of(argh).collect(Collectors.groupingBy(x->x.substring(1,2)));
         System.out.println(midcr);
 
+        //22. sum of elements in List
+        List<Integer> argi = Arrays.asList(1,2,3,4,5);
+        int sumi = argi.stream().mapToInt(Integer::valueOf).sum();
+        System.out.println(sumi);
 
 
 
