@@ -156,6 +156,15 @@ public class Main {
         List<String> srted = argj.stream().sorted(String.CASE_INSENSITIVE_ORDER).toList();
         System.out.println(srted);
 
+        //24. Convert a list of integers to their squares.
+        List<Integer> argk = Arrays.asList(1,2,3,4,5);
+        List<Integer> sqrs = argk.stream().map(x->x*x).toList();
+        System.out.println(sqrs);
 
-  }
+        //25. find and print distinct odds
+        List<Integer> argl = Arrays.asList(17,4,6,9,2,3,5,8,9,3,3,3,6,1);
+        List<Integer> distods = argl.stream().filter(x->x%2==1).distinct().toList();
+        System.out.println(distods);
+
+    }
 }
