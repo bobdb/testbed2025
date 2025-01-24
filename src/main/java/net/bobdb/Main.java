@@ -4,6 +4,7 @@ import org.w3c.dom.ls.LSOutput;
 
 import java.util.*;
 import java.util.function.Function;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -177,6 +178,12 @@ public class Main {
         int sk=3;
         int kth = list3.stream().sorted().skip(sk-1).findFirst().get();
         System.out.println(kth);
+
+        //28. remove all not numeric integers from list of strings
+        List<String> list4 = List.of("a1b2g4", "gg3df2", "k9d67d");
+        Pattern pattern = Pattern.compile("^[0-9]");
+        List<String> ans6 = list4.stream().map(x->pattern.matcher(x).replaceAll("")).toList();
+        System.out.println(ans6);
 
 
 
