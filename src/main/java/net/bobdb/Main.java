@@ -1,7 +1,5 @@
 package net.bobdb;
 
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.*;
 import java.util.function.Function;
 import java.util.regex.Pattern;
@@ -17,10 +15,10 @@ public class Main {
 
 
         // 1. Given a sentence, find the longest word.
-        String s = "When it comes to rocking Maiden doesnt screw around";
+        String s = "When it comes to rocking Maiden doesn't screw around";
         String ans = Arrays.stream(s.split(" "))
                 .max(Comparator.comparing(String::length))
-                .get();
+                .orElse("Get bent");
         System.out.println(ans);
 
         // 2. Remove duplicates from string and return in same order
@@ -35,7 +33,7 @@ public class Main {
                 .sorted(Comparator.comparing(String::length).reversed())
                 .skip(1)
                 .findFirst()
-                .get();
+                .orElse("Get bent");
         System.out.println(ans);
 
         // 4. return the length of the 2nd longest word
@@ -44,11 +42,11 @@ public class Main {
                 .sorted(Comparator.reverseOrder())
                 .skip(1)
                 .findFirst()
-                .get();
+                .orElse(666);
         System.out.println(ans3);
 
         // 5. Given a sentence, find the occurrences of each word
-        String s4 = "When it comes to rocking Maiden doesnt screw around with their rocking";
+        String s4 = "When it comes to rocking Maiden doesn't screw around with their rocking";
         Map<String, Long> counts = Arrays.stream(s4.split(" "))
                 .collect(groupingBy(Function.identity(), Collectors.counting()));
         System.out.println(counts);
@@ -63,7 +61,7 @@ public class Main {
                 .values().stream().toList();
         System.out.println(k);
 
-        //8.  Given a word, find the occurence of each characher
+        //8.  Given a word, find the occurrence of each character
         String str = "ASDFASDFASDFASDFASDFASDFASD";
         Map<String, Long> charCount = Arrays.stream(str.split(""))
                 .collect(groupingBy(Function.identity(),Collectors.counting()));
@@ -80,19 +78,24 @@ public class Main {
         int sum = Arrays.stream(arr).distinct().sum();
         System.out.println(sum);
 
-        //11.  Find the first nonrepeated character
+        //11.  Find the first non-repeated character
         final String newString = "ASDFASDFASDFASXDFASDFASDFASD";
-        var firstNonZero = Arrays.stream(newString.split("")).filter( a->newString.indexOf(a)==newString.lastIndexOf(a)).findFirst().get();
+        var firstNonZero = Arrays.stream(newString.split(""))
+                .filter( a->newString.indexOf(a)==newString.lastIndexOf(a))
+                .findFirst()
+                .orElse("Get bent");
         System.out.println(firstNonZero);
 
         firstNonZero =  newString.chars().mapToObj(x->(char)x).collect(groupingBy(Function.identity(),LinkedHashMap::new, Collectors.counting()))
                 .entrySet().stream().filter(aa->aa.getValue()==1)
-                .map(m->String.valueOf(m.getKey())).findFirst().get();
+                .map(m->String.valueOf(m.getKey())).findFirst().orElse("Get bent");
         System.out.println(firstNonZero);
 
         //12. Find first repeated character
         char q = str.chars().mapToObj(x->(char)x).collect(groupingBy(Function.identity(),LinkedHashMap::new,Collectors.counting()))
-                .entrySet().stream().filter(e->e.getValue()>1).map(Map.Entry::getKey).findFirst().get();
+                .entrySet().stream().filter(e->e.getValue()>1).map(Map.Entry::getKey)
+                .findFirst()
+                .orElse('~');
         System.out.println(q);
 
         //13.  Given an array of integers, group them according to decile
@@ -108,7 +111,7 @@ public class Main {
 
         //15.  Product of first 2 elements of array
         int[] arr2 = {2,3,4,5};
-        ans3 = Arrays.stream(arr2).boxed().collect(Collectors.toList()).stream().limit(2).reduce(1,(a,b)->a*b);
+        ans3 = Arrays.stream(arr2).boxed().toList().stream().limit(2).reduce(1,(a,b)->a*b);
         System.out.println(ans3);
 
         //16.  Group anagrams from a list of string
@@ -176,7 +179,7 @@ public class Main {
         //27. kth smallest element of list
         List<Integer> list3 = List.of(1,2,3,8,4,5);
         int sk=3;
-        int kth = list3.stream().sorted().skip(sk-1).findFirst().get();
+        int kth = list3.stream().sorted().skip(sk-1).findFirst().orElse(666);
         System.out.println(kth);
 
         //28. remove all not numeric integers from list of strings
