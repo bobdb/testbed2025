@@ -185,6 +185,11 @@ public class Main {
         List<String> ans6 = list4.stream().map(x->pattern.matcher(x).replaceAll("")).toList();
         System.out.println(ans6);
 
+        //29. return a list of the strings that contain only digits
+        List<String> list5 = List.of("a1b2g4", "gg3df2", "k9d67d", "43","23","567");
+        List<String> ans7 = list5.stream().filter(x->x.matches("\\d+")).toList();
+        System.out.println(ans7);
+
 
 
     }
