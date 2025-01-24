@@ -193,6 +193,11 @@ public class Main {
         List<String> ans7 = list5.stream().filter(x->x.matches("\\d+")).toList();
         System.out.println(ans7);
 
+        //30.Convert a list of strings to uppercase
+        List<String> list6 = List.of("sdgdfg", "sdfasdf", "dfgfgf","sdfasdf" );
+        List<String> ans8 = list6.stream().map(String::toUpperCase).toList();
+        System.out.println(ans8);
+
 
 
     }
