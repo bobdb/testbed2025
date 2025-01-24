@@ -198,6 +198,15 @@ public class Main {
         List<String> ans8 = list6.stream().map(String::toUpperCase).toList();
         System.out.println(ans8);
 
+        //31. Return the average of a list of numbers
+        List<Integer> list7 = List.of(1,2,3,4,5);
+        double avg = list7.stream().mapToInt(Integer::intValue).average().orElse(0);
+        System.out.println(avg);
+
+
+
+
+
 
 
     }
