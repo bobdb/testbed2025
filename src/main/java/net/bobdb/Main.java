@@ -203,6 +203,13 @@ public class Main {
         double avg = list7.stream().mapToInt(Integer::intValue).average().orElse(0);
         System.out.println(avg);
 
+        //32. Intersection of two lists (integers)
+        List<Integer> l1 = List.of(1,2,3,4,5);
+        List<Integer> l2 = List.of(3,4,5,6,7);
+        List<Integer> xection = l1.stream().filter(l2::contains).toList();
+        System.out.println(xection);
+
+
 
 
 
