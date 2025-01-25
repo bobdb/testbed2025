@@ -2,6 +2,7 @@ package net.bobdb;
 
 import java.util.*;
 import java.util.function.Function;
+import java.util.function.Supplier;
 import java.util.regex.Pattern;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -253,6 +254,14 @@ public class Main {
         Integer[] arr3 = {1,2,3,4,5};
         int prod = Arrays.stream(arr3).mapToInt(Integer::valueOf).reduce(1,(a,b)->a*b);
         System.out.println(prod);
+
+        //40. stream resumption with supplier
+        List<String> names = Arrays.asList("Alice","Bill","Carl","Dick");
+        Supplier<Stream<String>> namestream = names::stream;
+        namestream.get().forEach(System.out::println);
+        long cou = namestream.get().count();
+        System.out.println(cou);
+
 
 
 
