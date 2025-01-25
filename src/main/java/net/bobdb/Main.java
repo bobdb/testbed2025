@@ -262,11 +262,10 @@ public class Main {
         long cou = namestream.get().count();
         System.out.println(cou);
 
-
-
-
-
-
+        //41. convert a list of strings to uppercase and concat
+        String conc = names.stream()
+                        .map(String::toUpperCase).reduce((a,b)->a+" "+b).orElse("");
+        System.out.println(conc);
 
 
     }
