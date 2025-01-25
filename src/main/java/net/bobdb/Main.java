@@ -3,6 +3,7 @@ package net.bobdb;
 import java.util.*;
 import java.util.function.Function;
 import java.util.regex.Pattern;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -225,6 +226,19 @@ public class Main {
         List<Integer> sq = l8.stream().mapToInt(Integer::valueOf).map(x->x*x).boxed().toList();
         System.out.println(sq);
 
+        //36. Transform Person stream into a single string consisting of name fields separated by | and capitalized
+        List<Person> persons = List.of(new Person("alice"), new Person("bill"), new Person("charles"));
+
+        Collector<Person, StringJoiner, String> personCollector =
+                Collector.of(
+                        ()-> new StringJoiner(" | "),
+                        (j,p)->j.add(p.name().toUpperCase()),
+                        StringJoiner::merge,
+                        StringJoiner::toString
+                );
+
+        String ssss = persons.stream().collect(personCollector);
+        System.out.println(ssss);
 
 
 
