@@ -227,7 +227,7 @@ public class Main {
         System.out.println(sq);
 
         //36. Transform Person stream into a single string consisting of name fields separated by | and capitalized
-        List<Person> persons = List.of(new Person("alice"), new Person("bill"), new Person("charles"));
+        List<Person> persons = List.of(new Person("alice","New York"), new Person("bill","Boston"), new Person("charles","Boston"));
         Collector<Person, StringJoiner, String> personCollector =
                 Collector.of(
                         ()-> new StringJoiner(" | "),
@@ -244,6 +244,10 @@ public class Main {
         Map<Character, Long> sd= list9.stream().collect(Collectors.groupingBy(x->x.charAt(0), Collectors.counting()));
         System.out.println(sd);
 
+        //38. Convert a list to a map
+        Map<String,List<Person>> personcity = persons.stream()
+                                    .collect(Collectors.groupingBy(Person::city));
+        System.out.println(personcity);
 
 
 
