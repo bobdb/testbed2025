@@ -209,7 +209,17 @@ public class Main {
         List<Integer> xection = l1.stream().filter(l2::contains).toList();
         System.out.println(xection);
 
+        //33. Occurrence of domains
+        List<Employee> emps = List.of(new Employee("bob","bob@mail.com"), new Employee("harry","harry@meh.com"));
+        var kk = emps.stream().map(x->x.mail().substring(x.mail().indexOf("@"))).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        System.out.println(kk);
 
+        //34.  Fibonacci sequence
+        List<Integer> fib = Stream.iterate(new int[] {0,1},f->new int[] {f[1],f[0]+f[1]})
+                .limit(10)
+                .map(f->f[0]+f[1])
+                .toList();
+        System.out.println(fib);
 
 
 
