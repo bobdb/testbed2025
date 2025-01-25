@@ -13,7 +13,6 @@ import static java.util.stream.Collectors.groupingBy;
 public class Main {
     public static void main(String[] args) {
 
-
         // 1. Given a sentence, find the longest word.
         String s = "When it comes to rocking Maiden doesn't screw around";
         String ans = Arrays.stream(s.split(" "))
@@ -220,6 +219,15 @@ public class Main {
                 .map(f->f[0]+f[1])
                 .toList();
         System.out.println(fib);
+
+        //35. List to List of Squares
+        List<Integer> l8 = List.of(2,3,4,5,6);
+        List<Integer> sq = l8.stream().mapToInt(Integer::valueOf).map(x->x*x).boxed().toList();
+        System.out.println(sq);
+
+
+
+
 
 
 
