@@ -249,6 +249,10 @@ public class Main {
                                     .collect(Collectors.groupingBy(Person::city));
         System.out.println(personcity);
 
+        //39. Multiply array elemnts
+        Integer[] arr3 = {1,2,3,4,5};
+        int prod = Arrays.stream(arr3).mapToInt(Integer::valueOf).reduce(1,(a,b)->a*b);
+        System.out.println(prod);
 
 
 
