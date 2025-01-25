@@ -228,7 +228,6 @@ public class Main {
 
         //36. Transform Person stream into a single string consisting of name fields separated by | and capitalized
         List<Person> persons = List.of(new Person("alice"), new Person("bill"), new Person("charles"));
-
         Collector<Person, StringJoiner, String> personCollector =
                 Collector.of(
                         ()-> new StringJoiner(" | "),
@@ -239,6 +238,11 @@ public class Main {
 
         String ssss = persons.stream().collect(personCollector);
         System.out.println(ssss);
+
+        //37.  Group list of strings by first character and count them
+        List<String> list9 = List.of("abc","agf","aky","bsd","bnw","casd");
+        Map<Character, Long> sd= list9.stream().collect(Collectors.groupingBy(x->x.charAt(0), Collectors.counting()));
+        System.out.println(sd);
 
 
 
