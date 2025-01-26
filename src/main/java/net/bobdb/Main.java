@@ -267,6 +267,31 @@ public class Main {
                         .map(String::toUpperCase).reduce((a,b)->a+" "+b).orElse("");
         System.out.println(conc);
 
+        //4-. Flatmap vs Map
+        List<ItemContainer> pci = Arrays.asList(
+                new ItemContainer(1, List.of("a","b","c")),
+                new ItemContainer(2, List.of("d","e","f")),
+                new ItemContainer(3, List.of("g","h","i"))
+        );
+        List<List<String>> persons2 = pci.stream().map(ItemContainer::getPersons).toList();
+        System.out.println(persons2);
+        List<String> persons3 = pci.stream().flatMap(x->x.getPersons().stream()).toList();
+        System.out.println(persons3);
 
+
+    }
+}
+
+class ItemContainer {
+    int id;
+    List<String> persons;
+
+    ItemContainer(int id, List<String> persons) {
+        this.id = id;
+        this.persons = new ArrayList<String>(persons);
+    }
+
+    List<String> getPersons() {
+        return persons;
     }
 }
