@@ -228,7 +228,7 @@ public class Main {
         System.out.println(sq);
 
         //36. Transform Person stream into a single string consisting of name fields separated by | and capitalized
-        List<Person> persons = List.of(new Person("alice","New York"), new Person("bill","Boston"), new Person("charles","Boston"));
+        List<Person> persons = List.of(new Person("alice","New York", 21), new Person("bill","Boston", 25), new Person("charles","Boston", 50));
         Collector<Person, StringJoiner, String> personCollector =
                 Collector.of(
                         ()-> new StringJoiner(" | "),
@@ -283,6 +283,28 @@ public class Main {
         Stream<String> ss2 = Stream.of("4", "5", "6");
         Stream<String> ss2all = Stream.concat(ss1,ss2);
         System.out.println(ss2all.toList());
+
+        //43. Get names whos age>30, unique, sorted
+        // bad
+        var r1 = persons.stream()
+                .filter(x->x.age()>30)
+                .map(Person::name)
+                .distinct()
+                .sorted()
+                .toList();
+        System.out.println(r1);
+
+        //better.  still sucks.
+        var r2 = persons.stream()
+                .filter(x->x.age()>30)
+                .map(Person::name)
+                .toList();
+        var r3 = r2.stream()
+                .distinct().sorted().toList();
+        System.out.println(r3);
+
+
+
     }
 }
 
