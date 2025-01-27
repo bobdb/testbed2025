@@ -278,7 +278,11 @@ public class Main {
         List<String> persons3 = pci.stream().flatMap(x->x.getPersons().stream()).toList();
         System.out.println(persons3);
 
-
+        //42. Concatenate two streams
+        Stream<String> ss1 = Stream.of("1", "2", "3");
+        Stream<String> ss2 = Stream.of("4", "5", "6");
+        Stream<String> ss2all = Stream.concat(ss1,ss2);
+        System.out.println(ss2all.toList());
     }
 }
 
@@ -288,7 +292,7 @@ class ItemContainer {
 
     ItemContainer(int id, List<String> persons) {
         this.id = id;
-        this.persons = new ArrayList<String>(persons);
+        this.persons = new ArrayList<>(persons);
     }
 
     List<String> getPersons() {
