@@ -314,7 +314,18 @@ public class Main {
         System.out.printf("%.2f\n", productList.stream().mapToDouble(Product::price).average().orElse(0.00));
         System.out.println(productList.stream().min(Comparator.comparing(Product::price)).map(Product::name).orElse(null));
 
-
+        //46 best practices (more)
+        //List of names, find names that start with someting and count
+        //message: don't reuse streams
+        List<String> l10 = List.of("Aasd", "Asdfsdf", "gfgfg");
+        Stream<String> s10 = l10.stream().filter(x->x.startsWith("A"));
+        s10.forEach(System.out::println);
+        try {
+            long c = s10.count();
+            System.out.println(c);
+        } catch (IllegalStateException e) {
+            System.out.println(e);
+        }
     }
 }
 
