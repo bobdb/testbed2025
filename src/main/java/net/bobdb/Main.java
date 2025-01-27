@@ -326,6 +326,18 @@ public class Main {
         } catch (IllegalStateException e) {
             System.out.println(e);
         }
+
+        //47. Best practices
+        Stream<Integer> inf = Stream.iterate(1, x->x+1);
+        inf.limit(10).forEach(System.out::println);
+        IntStream infs = IntStream.iterate(1, x->x+1);
+        infs.limit(10).forEach(System.out::println);
+
+        Stream<Double> rands_incorrect = Stream.iterate(Math.random(), n->Math.random()); //not greate, iterate for definte function
+        Stream<Double> rands = Stream.generate(Math::random); //not greate, iterate for definte function
+        rands.limit(10).forEach(System.out::println);
+
+
     }
 }
 
