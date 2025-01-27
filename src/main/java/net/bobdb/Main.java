@@ -304,17 +304,17 @@ public class Main {
         System.out.println(r3);
 
         //45 fun with Product records
-
         List<Product> productList = List.of (
                 new Product(1,"a",1.23, "A"),
                 new Product(2,"b",11.23, "B"),
                 new Product(3,"c",111.23, "C")
         );
-
         System.out.println(productList.stream().filter(x->x.price()<20).map(Product::name).toList());
         System.out.println(productList.stream().map(x->new Product(x.id(), x.name(), x.price()*0.20,x.category())).toList());
         System.out.printf("%.2f\n", productList.stream().mapToDouble(Product::price).average().orElse(0.00));
         System.out.println(productList.stream().min(Comparator.comparing(Product::price)).map(Product::name).orElse(null));
+
+
     }
 }
 
