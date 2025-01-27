@@ -327,7 +327,7 @@ public class Main {
             System.out.println(e);
         }
 
-        //47. Best practices
+        //4-. Best practices
         Stream<Integer> inf = Stream.iterate(1, x->x+1);
         inf.limit(10).forEach(System.out::println);
         IntStream infs = IntStream.iterate(1, x->x+1);
@@ -337,9 +337,21 @@ public class Main {
         Stream<Double> rands = Stream.generate(Math::random); //not greate, iterate for definte function
         rands.limit(10).forEach(System.out::println);
 
-        //48. Avg age of male and female employees
+        //47. Avg age of male and female employees
         var genderagemap = emps.stream().collect(Collectors.groupingBy(Employee::gender,Collectors.averagingInt(Employee::age)));
         System.out.println(genderagemap);
+
+        //48 Middle character of string
+        String sds = "123456";
+        int len = sds.length();
+        int mid = len/2;
+        String dsds = Arrays.stream(sds.split("")).skip(sds.length()/2).findFirst().orElse("something went wrong");
+        System.out.println(dsds);
+        var var10 = IntStream.range(0,len)
+                .filter(x->len%2==0 ? (x==mid||x==mid-1) : (x==mid)  )
+                .mapToObj(sds::charAt)
+                .collect(StringBuilder::new, StringBuilder::append, StringBuilder::append).toString() ;
+        System.out.println(var10);
 
 
     }
