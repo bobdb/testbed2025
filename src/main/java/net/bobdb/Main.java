@@ -211,7 +211,7 @@ public class Main {
         System.out.println(xection);
 
         //33. Occurrence of domains
-        List<Employee> emps = List.of(new Employee("bob","bob@mail.com"), new Employee("harry","harry@meh.com"));
+        List<Employee> emps = List.of(new Employee("bob","bob@mail.com", 32, "M"), new Employee("harry","harry@meh.com", 45, "M"), new Employee("carol","carol@meh.com", 43, "F"));
         var kk = emps.stream().map(x->x.mail().substring(x.mail().indexOf("@"))).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
         System.out.println(kk);
 
@@ -336,6 +336,10 @@ public class Main {
         Stream<Double> rands_incorrect = Stream.iterate(Math.random(), n->Math.random()); //not greate, iterate for definte function
         Stream<Double> rands = Stream.generate(Math::random); //not greate, iterate for definte function
         rands.limit(10).forEach(System.out::println);
+
+        //48. Avg age of male and female employees
+        var genderagemap = emps.stream().collect(Collectors.groupingBy(Employee::gender,Collectors.averagingInt(Employee::age)));
+        System.out.println(genderagemap);
 
 
     }
