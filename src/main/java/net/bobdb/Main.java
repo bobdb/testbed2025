@@ -363,6 +363,13 @@ public class Main {
                 .toList();
         System.out.println(arrr);
 
+        //51 find salaries over something, and then increase
+        List<Employee> lemp = emps.stream().filter(x->x.age()>40)
+             //   .peek(x->x.age()+1)
+                .toList();
+        // This would would if Employee was as class, it's record so not dealing with it
+        System.out.println(lemp);
+
     }
 }
 
