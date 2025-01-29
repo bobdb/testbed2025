@@ -353,6 +353,15 @@ public class Main {
                 .collect(StringBuilder::new, StringBuilder::append, StringBuilder::append).toString() ;
         System.out.println(var10);
 
+        //49 distinct numbers in descending order which starts with 1
+        int[] arr4 = {12, 34, 11, 1243, 45, 23, 1, 143};
+        List<Integer> arrr = Arrays.stream(arr4)
+                .distinct()
+                .filter(x->String.valueOf(x).startsWith("1"))
+                .boxed()
+                .sorted(Comparator.reverseOrder())
+                .toList();
+        System.out.println(arrr);
 
     }
 }
